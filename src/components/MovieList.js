@@ -14,7 +14,7 @@ const MovieList = () => {
         getMovies(trendingMoviesURL)
             .then(data => {
                 const results = data.results
-                const orderedMoviesByPopularity = results.sort((a, b) => b.popularity - a.popularity)
+                const orderedMoviesByPopularity = results?.sort((a, b) => b.popularity - a.popularity)
                 setMovies(orderedMoviesByPopularity)
                 setIsLoading(false)
             })
@@ -24,16 +24,17 @@ const MovieList = () => {
         <>
             {
                 isLoading
-                    ?
-                    <Row className="justify-content-center align-items-center" style={{height: `100vh`}}>
+                    ? // Spinner
+                    <Row className="justify-content-center align-items-center" style={{height: `calc(100vh - 56px)`}}>
                         <Spinner animation="border" role="status" variant="primary" />
                     </Row>
-                    :
-                    <Row className="row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-3" >
-                        {
-                            movies.map(movie => <MovieItem key={movie.id} {...movie} />)
-                        }
+                    : // List
+                    <div className="mt-3">
+                    <h3>Trending movies</h3>
+                    <Row as="ul" className="row-cols-1 row-cols-md-2 row-cols-lg-3 row-cols-xxl-4 g-3 list-unstyled" >
+                        { movies.map(movie => <MovieItem key={movie.id} {...movie} />) }
                     </Row >
+                    </div>
             }
         </>
 

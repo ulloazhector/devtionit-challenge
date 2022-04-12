@@ -2,7 +2,7 @@ import Col from "react-bootstrap/Col"
 import Card from "react-bootstrap/Card"
 const MovieItem = ({ original_title, name, backdrop_path, popularity, overview, vote_average }) => {
     return (
-        <Col>
+        <Col as="li">
             <Card className="h-100">
                 <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${backdrop_path}`} />
                 <Card.Body>
