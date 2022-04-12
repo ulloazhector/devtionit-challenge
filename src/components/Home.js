@@ -6,6 +6,7 @@ import SearchList from "./SearchList"
 
 const Home = () => {
     const { isSearching } = useContext(SearchContext)
+
     return (
         <Container>
             {

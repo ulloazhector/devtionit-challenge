@@ -1,0 +1,14 @@
+.card__item {
+    .img__wrapper {
+        overflow: hidden;
+        .card__img {
+            object-fit: cover;
+            transition: transform .25s ease;
+        }
+    }
+    &:hover {
+        .card__img {
+            transform: scale(1.05);
+        }
+    }
+}
