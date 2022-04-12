@@ -7,7 +7,7 @@ const MovieItem = ({ id, original_title, name, poster_path, popularity, overview
     return (
         <Col as="li">
             <LinkContainer to={`/movie/${id}`}>
-                <Card className="h-100 card__item" role="button">
+                <Card className="h-100 shadow card__item" role="button">
                     <div className="img__wrapper">
                         <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500${poster_path}`} className="card__img h-100 w-100" />
                     </div>
